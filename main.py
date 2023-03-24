@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import os
 
 st.set_page_config(
     page_title="Comtrade HS Code 731815 Data Visualization 2017~2021",
@@ -32,8 +33,11 @@ st.markdown(
 
 
 # 读取csv文件
-file_path = '/Users/zhangmitsu/PycharmProjects/FastenerGlobalTradingDataAnalysis/comtrade.csv'
+
+
+file_path = os.path.join(os.path.expanduser("~"), "PycharmProjects", "FastenerGlobalTradingDataAnalysis", "comtrade.csv")
 df = pd.read_csv(file_path)
+
 
 # 重塑数据框
 id_vars = ['Year', 'Partner', 'Commodity Code', 'Commodity']
